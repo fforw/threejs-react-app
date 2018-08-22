@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
-import './App.css';
-import * as THREE from 'three.js-master';
+import React, { Component } from "react";
+import "./App.css";
+
+const THREE = require('three');
+const OBJLoader = require('three-obj-loader');
+OBJLoader(THREE);
 
 class App extends Component {
 
@@ -13,7 +16,7 @@ class App extends Component {
     renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
     document.body.appendChild(renderer.domElement);
 
-    var loader = new THREE.ObjectLoader();
+    var loader = new THREE.OBJLoader();
     loader.load('/3d/obj.OBJ', verLoad);
 
     function verLoad(geometry, materials) {
